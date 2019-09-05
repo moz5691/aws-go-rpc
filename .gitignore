@@ -3,3 +3,4 @@
 tools.json
 **/.terraform/**
 **/.tfvars
+*.tfstate
