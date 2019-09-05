@@ -32,6 +32,7 @@ https://github.com/Arattian/DynamoDb-GUI-Client
 
 ```
 make prod-build
+cd terraform
 terraform init
 terraform apply -var-file="main.tfvars"
 ```
