@@ -1,0 +1,22 @@
+{
+  "movies": [
+    {
+      "PutRequest": {
+        "Item": {
+          "Title": {
+            "S": "Rain man"
+          },
+          "Year": {
+            "N": "1999"
+          },
+          "Plot": {
+            "S": "A story about brothers"
+          },
+          "Rating": {
+            "N": "4.9"
+          }
+        }
+      }
+    }
+  ]
+}

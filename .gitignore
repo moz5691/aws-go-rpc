@@ -1,0 +1,5 @@
+/build
+*.env
+tools.json
+**/.terraform/**
+**/.tfvars

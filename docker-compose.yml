@@ -1,0 +1,20 @@
+version: "3.5"
+services:
+  dynamo:
+    container_name: dynamodb-local
+    image: "amazon/dynamodb-local"
+    networks:
+      - server
+    # volumes:
+    #   - ./dynamodata:/home/dynamodblocal
+    # working_dir: /home/dynamodblocal
+    ports:
+      - "8000:8000"
+    command: "-jar DynamoDBLocal.jar -sharedDb -inMemory"
+
+networks:
+  server:
+    name: twrip-lambda-backend
+
+volumes:
+  dynamodata: {}

@@ -1,0 +1,23 @@
+syntax = "proto3";
+
+package com.moz5691.twirp.movies;
+option go_package = "movies";
+
+service Movies {
+  rpc GetByTitle(SearchTerm) returns (Item);
+  rpc DeleteByTitle(SearchTerm) returns (SearchTerm);
+  rpc Update(Item) returns (Item);
+  rpc Post(Item) returns (Item);
+}
+
+message SearchTerm {
+  string Title = 1;
+  int32 Year = 2;
+}
+
+message Item {
+  string title = 1;
+  int32 year = 2;
+  string plot = 3;
+  float rating = 4;
+}
