@@ -1,33 +1,34 @@
 For local development.
 
-##Start Docker DynamoDB.
+## Start Docker DynamoDB.
 
 ```
 docker-compose up dynamo
 ```
 
-###Start Server
+### Start Server
 
 ```
 make dev-run
 ```
 
-###Build and run Client
+### Build and run Client
 
 ```
 make dev-crun
 ```
 
-###Client runs with
+### Client runs with
 
 ```
 ./build/client -h
 ```
 
-##Run DynamoDB GUI client (useful)
+## Run DynamoDB GUI client (useful)
+
 https://github.com/Arattian/DynamoDb-GUI-Client
 
-##For AWS depolyment.
+## For AWS depolyment.
 
 ```
 make prod-build
@@ -35,7 +36,7 @@ terraform init
 terraform apply -var-file="main.tfvars"
 ```
 
-##Reference:
+## Reference:
 
 https://github.com/nerdguru/go-sls-crudl
 https://github.com/developmentseed/tf-lambda-proxy-apigw
