@@ -1,6 +1,12 @@
-For local development.
+Lambda method is highly tedious as the Lambda method forces you to define headers, status code and so on in the configuration of each API Gateway Endpoint (not in the code).
 
-## Start Docker DynamoDB.
+Wheares AWS-PROXY or Lambda-PROXY automatically passes the content of the HTTP request into the corresponding Lambda function and allows you to configure response with headers, status codes and so on in the Lambda code itself.
+
+![AWS Proxy](img/aws_proxy_method.png)
+
+## For local development.
+
+### Start Docker DynamoDB.
 
 ```
 docker-compose up dynamo
@@ -29,6 +35,9 @@ make dev-crun
 https://github.com/Arattian/DynamoDb-GUI-Client
 
 ## For AWS depolyment.
+
+Terraform is used for infrastructure build and initial deployment.
+Terraform version >= 0.12
 
 ```
 make prod-build

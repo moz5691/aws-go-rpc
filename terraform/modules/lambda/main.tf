@@ -85,7 +85,7 @@ resource "aws_iam_role_policy" "logs" {
 }
 
 resource "aws_lambda_function" "lambda" {
-  function_name = "images"
+  function_name = "movies"
   filename      = "${data.archive_file.zip.output_path}"
   role          = "${aws_iam_role.lambda_role.arn}"
   handler       = "main"

@@ -5,14 +5,12 @@ resource "aws_dynamodb_table" "movies-dynamodb-table" {
   hash_key       = "Title"
   range_key      = "Year"
 
-  attribute = [
-    {
-      name = "Title"
-      type = "S"
-    },
-    {
-      name = "Year"
-      type = "N"
-    },
-  ]
+  attribute {
+    name = "Title"
+    type = "S"
+  }
+  attribute {
+    name = "Year"
+    type = "N"
+  }
 }

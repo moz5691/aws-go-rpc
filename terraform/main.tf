@@ -1,10 +1,10 @@
 terraform {
-  required_version = "~>0.11"
+  required_version = "~>0.12"
 }
 
 provider "aws" {
   region  = "${var.region}"
-  version = "~> 1.0"
+  version = "~> 2.7"
 }
 
 ######################
