@@ -4,4 +4,4 @@ tools.json
 **/.terraform/**
 **/.tfvars
 *.tfstate
-vender/**
+/vender
