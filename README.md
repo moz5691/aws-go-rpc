@@ -8,22 +8,18 @@ The following is the snapshot of AWS-Proxy from API Gateway (AWS).
 
 ## For local development.
 
-### Start Docker DynamoDB.
+### Start Docker.
 
 ```
-docker-compose up dynamo
-```
-
-### Start Server
-
-```
-make dev-run
+docker-compose build
+docker-compose up -d
 ```
 
 ### Build and run Client
 
 ```
 make dev-crun
+Note: change cmd/moviesclient/main.go accordingly to test either aginst AWS Lambda or Local server.
 ```
 
 ### Client runs with
