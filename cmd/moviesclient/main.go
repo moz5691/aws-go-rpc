@@ -23,7 +23,9 @@ var (
 )
 
 func main() {
-	// client := rpc.NewMoviesProtobufClient("http://localhost:8080", &http.Client{})
+
+	// Enabled the following to test via local
+	//client := rpc.NewMoviesProtobufClient("http://localhost:8080", &http.Client{})
 
 	err := godotenv.Load("local.env")
 	if err != nil {

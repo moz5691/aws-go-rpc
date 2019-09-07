@@ -3,6 +3,7 @@ package awsutils
 import (
 	"context"
 	"fmt"
+	"os"
 	"runtime"
 	"sync"
 	"time"
@@ -43,9 +44,11 @@ func init() {
 	// region in AWS
 	dynamoConfig := &aws.Config{Region: aws.String("us-east-1")}
 
-	// if dynamodb local is used..
+	// Check if dynamodb local is used or docker.
 	if (runtime.GOOS == "darwin") || (runtime.GOOS == "windows") {
 		dynamoConfig.Endpoint = aws.String("http://localhost:8000")
+	} else if os.Getenv("LISTEN_PORT") == "8080" {
+		dynamoConfig.Endpoint = aws.String("http://dynamo:8000")
 	}
 
 	sess, err := session.NewSession(dynamoConfig)

@@ -1,6 +1,8 @@
 Lambda method is highly tedious as the Lambda method forces you to define headers, status code and so on in the configuration of each API Gateway Endpoint (not in the code).
 
-Wheares AWS-PROXY or Lambda-PROXY automatically passes the content of the HTTP request into the corresponding Lambda function and allows you to configure response with headers, status codes and so on in the Lambda code itself.
+AWS-PROXY or Lambda-PROXY automatically passes the content of the HTTP request into the corresponding Lambda function and allows you to configure response with headers, status codes and so on in the Lambda code itself.
+
+The following is the snapshot of AWS-Proxy from API Gateway (AWS).
 
 ![AWS Proxy](img/aws_proxy_method.png)
 

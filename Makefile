@@ -63,7 +63,7 @@ invoke-func:
 run/dynamo-up:
 	docker-compose up -d dynamo
 
-run/dynamo-init: run/dynamo-up
+run/dynamo-init: #run/dynamo-up
 	./dynamodb/create-schema-locally.sh 
 	./dynamodb/load-data-locally.sh MovieSingle
 

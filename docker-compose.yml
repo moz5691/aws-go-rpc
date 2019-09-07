@@ -1,20 +1,32 @@
 version: "3.5"
+
 services:
+  # golang service
+  app:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    ports:
+      - "8080:8080"
+    restart: unless-stopped
+    depends_on:
+      - dynamo # this service depends on dynamo. sure to start dynamo first
+    environment:
+      LISTEN_PORT: 8080
+      AWS_ACCESS_KEY_ID: FAKED
+      AWS_SECRET_ACCESS_KEY: DUMMY
+
+    networks:
+      - backend
+
   dynamo:
     container_name: dynamodb-local
     image: "amazon/dynamodb-local"
     networks:
-      - server
-    # volumes:
-    #   - ./dynamodata:/home/dynamodblocal
-    # working_dir: /home/dynamodblocal
+      - backend
     ports:
       - "8000:8000"
     command: "-jar DynamoDBLocal.jar -sharedDb -inMemory"
 
 networks:
-  server:
-    name: twrip-lambda-backend
-
-volumes:
-  dynamodata: {}
+  backend:

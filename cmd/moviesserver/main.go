@@ -19,7 +19,6 @@ func main() {
 		fmt.Println(pair)
 	}
 
-	// You can use any mux you like
 	mux := http.NewServeMux()
 
 	server := &moviesserver.Server{}
@@ -27,27 +26,19 @@ func main() {
 	moviesHandler := movies.NewMoviesServer(server, nil)
 	mux.Handle(movies.MoviesPathPrefix, moviesHandler)
 
-	// Un-comment below to test locally
 	listenPort, exists := os.LookupEnv("LISTEN_PORT")
 	if !exists {
 		listenPort = "8080"
 	}
 	fmt.Println(listenPort)
 
-	// log.Print("Listening on " + listenPort + " in stage " + appStage + " docker image: --CodeImage--")
-	//Comment out below if serving over lambda
-
 	handler := cors.AllowAll().Handler(mux)
 
-	// http.ListenAndServe(":"+listenPort, mux)
-	// http.ListenAndServe(":8080", mux)
-
-	// Un-comment below before deploying to Lambda
-
+	// Check if it is in Lambda env.
 	awsExecutionEnv, exists := os.LookupEnv("AWS_EXECUTION_ENV")
 	if !exists {
 		fmt.Println("listen port", listenPort)
-		http.ListenAndServe(":8080", handler)
+		http.ListenAndServe(":"+listenPort, handler)
 	} else {
 		fmt.Println(awsExecutionEnv)
 		log.Fatal(gateway.ListenAndServe("", mux))
